@@ -28,6 +28,7 @@
                 );
                 echo $this->Form->input('audience', array('data-native-menu' => 'false',
                                                         'multiple="multiple"',
+                                                        'type' => 'select',
                                                         'label' => 'Intended Audience : ',
                                                         'options' => $options,
                                                         'empty' => 'Make your selection/s :')); 
