@@ -2,7 +2,7 @@
 
 <h3><?php echo h($pd['Pd']['title']); ?></h3>
 
-<div><small>Created on : <?php echo $pd['Pd']['created']; ?> by <?php echo $pd['Pd']['createdby']; ?></small></div>
+<div><small>Created on : <?php echo $pd['Pd']['created']; ?> by <?php echo $pd['Pd']['user_id']; ?></small></div>
 
 <div><p><strong>PD Synopsis :</strong> <br /><?php echo ($pd['Pd']['description']); ?></p></div>
 

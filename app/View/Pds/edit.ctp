@@ -25,13 +25,15 @@
                                 array('name' => 'Y5 - Y9 Teachers', 'value' => 'Y5 - Y9 Teachers'),
                                 array('name' => 'High School Teachers', 'value' => 'High School Teachers'),
                                 array('name' => 'Office Staff', 'value' => 'Office Staff')
-                );
+                ); 
                 echo $this->Form->input('audience', array('data-native-menu' => 'false',
-                                                        'multiple="multiple"',
+                                                        'multiple' => 'true',
                                                         'type' => 'select',
                                                         'label' => 'Intended Audience : ',
-                                                        'options' => $options,
-                                                        'empty' => 'Make your selection/s :')); 
+                                                        'options' => $options,                                                       
+                                                        'empty' => 'Make your selection/s :')
+                );                                                        
+                var_dump($this->data);
             ?>
         </li>
         
@@ -46,7 +48,7 @@
                 
                 );
                 echo $this->Form->input('venue',  array('data-native-menu' => 'false', 
-                                                    'label' => 'Venue :', 
+                                                    'label' => 'Venue :',
                                                     'options' => $venues,
                                                     'empty' => 'Choose one ...'));
             ?>

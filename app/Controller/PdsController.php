@@ -45,7 +45,7 @@ class PdsController extends AppController {
             $this->Pd->id = $id;
             if ($this->Pd->save($this->request->data)) {
                 $this->Session->setFlash(__('Your post has been updated.'));
-                $this->redirect(array('action' => 'index'));
+                //$this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash(__('Unable to update your post.'));
             }
