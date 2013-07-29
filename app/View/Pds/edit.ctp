@@ -30,6 +30,7 @@
                                                         'multiple="multiple"',
                                                         'label' => 'Intended Audience :',
                                                         'options' => '$options',
+                                                        'options' => $options,
                                                         'type' => 'select',
                                                         'empty' => 'Make your selection/s :')); 
             ?>
