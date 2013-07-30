@@ -32,7 +32,8 @@
                                                         'label' => 'Intended Audience : ',
                                                         'options' => $options,                                                       
                                                         'empty' => 'Make your selection/s :')
-                );                                                        
+                );
+                $this->data['Pd']['audience'] = implode(',', $this->data['Pd']['audience']);                                                        
                 var_dump($this->data);
             ?>
         </li>
