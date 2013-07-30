@@ -6,5 +6,9 @@ class Pd extends AppModel {
         'description' => array('rule' => 'notEmpty'),
         'conducted' => array('rule' => 'notEmpty')
     );
-
+/**
+    public $hasMany = array (
+        'Audience'
+    );
+**/
 }

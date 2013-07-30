@@ -4,7 +4,8 @@ class PdsController extends AppController {
     public $helpers = array('Html', 'Form', 'Session');
     
     public function index() {
-    	$this->set('pds', $this->Pd->find('all'));
+    	$pds = $this->set('pds', $this->Pd->find('all'));
+        //pr($pds);
     }
     
     public function view($id = null) {
