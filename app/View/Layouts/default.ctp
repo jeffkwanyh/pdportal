@@ -31,16 +31,16 @@ $cakeDescription = __d('cake_dev', 'PD Portal - SIS@SS');
 	<?php
 		echo $this->Html->meta('icon');
 
-		//echo $this->Html->css('notices');
-        echo $this->Html->css('cake.generic');
+		echo $this->Html->css('notices');
+        //echo $this->Html->css('cake.generic');
 
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
-	<!-- <link rel="stylesheet" href="app/webroot/js/jquery.mobile-1.3.1.min.css" />
+	<link rel="stylesheet" href="app/webroot/js/jquery.mobile-1.3.1.min.css" />
 	<script src="app/webroot/js/jquery-1.9.1.min.js"></script>
-	<script src="app/webroot/js/jquery.mobile-1.3.1.min.js"></script> -->
+	<script src="app/webroot/js/jquery.mobile-1.3.1.min.js"></script>
 </head>
 <body>
 <!-- Start of Page -->

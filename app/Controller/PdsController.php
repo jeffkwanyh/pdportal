@@ -43,7 +43,11 @@ class PdsController extends AppController {
     
         if ($this->request->is('post') || $this->request->is('put')) {
             $this->Pd->id = $id;
-            if ($this->Pd->save($this->request->data)) {
+            /* Manipulate the array before saving */
+            $manipulatedArray = $this->request->data;
+            $manipulatedArray['Pd']['audience'] = implode(',', $this->request->data['Pd']['audience']);
+        
+            if ($this->Pd->save($manipulatedArray)) {
                 $this->Session->setFlash(__('Your post has been updated.'));
                 //$this->redirect(array('action' => 'index'));
             } else {

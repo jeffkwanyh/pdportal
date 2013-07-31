@@ -27,7 +27,8 @@
                                 array('name' => 'Office Staff', 'value' => 'Office Staff')
                 ); 
                 echo $this->Form->input('audience', array('data-native-menu' => 'false',
-                                                        'multiple' => 'true',
+                                                        'div' => false,
+                                                        'multiple' => true,
                                                         'type' => 'select',
                                                         'label' => 'Intended Audience : ',
                                                         'options' => $options,                                                       
