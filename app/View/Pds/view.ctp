@@ -6,7 +6,7 @@
 
 <div><p><strong>PD Synopsis :</strong> <br /><?php echo ($pd['Pd']['description']); ?></p></div>
 
-<div><p><strong>Targeted Audience :</strong> <?php echo ($pd['Pd']['audience']); ?></p></div>
+<div><p><strong>Intended Audience :</strong> <?php echo ($pd['Pd']['audience']); ?></p></div>
 
 <div><p><strong>Venue :</strong> <?php echo ($pd['Pd']['venue']); ?></p></div>
 

@@ -30,7 +30,7 @@
                                                         'div' => false,
                                                         'multiple' => true,
                                                         'type' => 'select',
-                                                        'label' => 'Intended Audience : ',
+                                                        'label' => 'Intended Audience : <span style="color:red">*</span>',
                                                         'options' => $options,                                                       
                                                         'empty' => 'Make your selection/s :')
                 );

@@ -28,8 +28,9 @@
                                 array('name' => 'Office Staff', 'value' => 'Office Staff')
                 );
                 echo $this->Form->input('audience', array('data-native-menu' => 'false',
-                                                        'multiple="multiple"',
-                                                        'label' => 'Intended Audience :',
+                                                        'div' => false,
+                                                        'multiple' => true,
+                                                        'label' => 'Intended Audience : <span style="color:red">*</span>',
                                                         'options' => $options,
                                                         'type' => 'select',
                                                         'empty' => 'Make your selection/s :')); 
@@ -38,13 +39,19 @@
         
         <!-- This is the section to hardcode the venues information. On the TO-DO list ... ... -->
         <li data-role="fieldcontain">
-            <?php echo $this->Form->input('venue',  array('data-native-menu' => 'false', 
-                                                    'label' => 'Venue :', 
-                                                    'options' => array('ICT Lab A', 
-                                                                'ICT Lab B', 
-                                                                'Hall', 
-                                                                'Library'), 
-                                                    'empty' => 'Choose one ...'));
+            <?php 
+                 $venues = array(
+                                    array('name' => 'ICT Lab A', 'value' => 'ICT Lab A'),
+                                    array('name' => 'ICT Lab B', 'value' => 'ICT Lab B'),
+                                    array('name' => 'Hall', 'value' => 'Hall'),
+                                    array('name' => 'Library', 'value' => 'Library')
+                    
+                );            
+                echo $this->Form->input('venue',  array('data-native-menu' => 'false', 
+                                                        'label' => 'Venue :', 
+                                                        'options' => $venues, 
+                                                        'empty' => 'Choose one ...')
+                );
             ?>
         </li>
         

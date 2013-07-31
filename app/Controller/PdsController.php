@@ -22,7 +22,10 @@ class PdsController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->Pd->create();
-            if ($this->Pd->save($this->request->data)) {
+             /* Manipulate the array before saving */
+            $manipulatedArray = $this->request->data;
+            $manipulatedArray['Pd']['audience'] = implode(',', $this->request->data['Pd']['audience']);
+            if ($this->Pd->save($manipulatedArray)) {
                 $this->Session->setFlash(__('Your PD has been saved.'));
                 $this->redirect(array('action' => 'index'));
             } else {
@@ -49,7 +52,7 @@ class PdsController extends AppController {
         
             if ($this->Pd->save($manipulatedArray)) {
                 $this->Session->setFlash(__('Your post has been updated.'));
-                //$this->redirect(array('action' => 'index'));
+                $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash(__('Unable to update your post.'));
             }
