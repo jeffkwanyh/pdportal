@@ -2,7 +2,7 @@
 
 <h3>Create a PD</h3>
 
-    <?php echo $this->Form->create('Pd'); ?>
+    <?php echo $this->Form->create('Pd', array('type'=>'file')); ?>
     <ul data-role="listview" data-inset="true">
         <li data-role="fieldcontain">
             <?php echo $this->Form->input('title', array('data-clear-btn' => 'true', 'label' => 'Title :')); ?>
@@ -29,7 +29,7 @@
                 );
                 echo $this->Form->input('audience', array('data-native-menu' => 'false',
                                                         'div' => false,
-                                                        'multiple' => true,
+                                                        //'multiple' => true,
                                                         'label' => 'Intended Audience : <span style="color:red">*</span>',
                                                         'options' => $options,
                                                         'type' => 'select',
@@ -56,7 +56,7 @@
         </li>
         
         <li data-role="fieldcontain">
-            <?php echo $this->Form->label('startdate', 'Start Date : ', array('required' => 'required')); ?>
+            <?php echo $this->Form->label('startdate', 'Start Date : '); ?>
             <?php echo $this->Form->text('startdate', array('type' => 'date')); ?>
         </li>
         <li data-role="fieldcontain">

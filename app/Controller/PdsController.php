@@ -5,6 +5,7 @@ class PdsController extends AppController {
     public $helpers = array('Html', 'Form', 'Session');
     
     public function index() {
+        $this->Pd->create();
     	$this->set('pds', $this->Pd->find('all'));
     }
     
@@ -24,9 +25,10 @@ class PdsController extends AppController {
         if ($this->request->is('post')) {
             $this->Pd->create();
              /* Manipulate the array before saving */
-            $manipulatedArray = $this->request->data;
-            $manipulatedArray['Pd']['audience'] = implode(',', $this->request->data['Pd']['audience']);
-            if ($this->Pd->save($manipulatedArray)) {
+            //$manipulatedArray = $this->request->data;
+            //$manipulatedArray['Pd']['audience'] = implode(', ', $this->request->data['Pd']['audience']);
+            //if ($this->Pd->save($manipulatedArray)) {
+              if ($this->Pd->save($this->request->data)) {
                 $this->Session->setFlash(__('Your PD has been saved.'));
                 $this->redirect(array('action' => 'index'));
             } else {
