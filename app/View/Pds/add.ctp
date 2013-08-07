@@ -1,82 +1,30 @@
-<!-- File: /app/View/Pds/add.ctp -->
+<div class="pds form">
+<?php echo $this->Form->create('Pd'); ?>
+	<fieldset>
+		<legend><?php echo __('Add Pd'); ?></legend>
+	<?php
+		echo $this->Form->input('title');
+		echo $this->Form->input('description');
+		echo $this->Form->input('audience');
+		echo $this->Form->input('startdate');
+		echo $this->Form->input('starttime');
+		echo $this->Form->input('enddate');
+		echo $this->Form->input('endtime');
+		echo $this->Form->input('venue');
+		echo $this->Form->input('conducted');
+		echo $this->Form->input('attachment');
+		echo $this->Form->input('approval');
+		echo $this->Form->input('user_id');
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
 
-<h3>Create a PD</h3>
-
-    <?php echo $this->Form->create('Pd', array('type'=>'file')); ?>
-    <ul data-role="listview" data-inset="true">
-        <li data-role="fieldcontain">
-            <?php echo $this->Form->input('title', array('data-clear-btn' => 'true', 'label' => 'Title :')); ?>
-        </li>
-        <li data-role="fieldcontain">
-            <?php echo $this->Form->input('description', array('rows' => '3', 'label' => 'Synopsis :')); ?>
-        </li>
-        
-        <!-- This is the section to hardcode the Intended Audience information. On the TO-DO list ... ... -->
-        <li data-role="fieldcontain">
-            <?php 
-                $options = array(
-                                array('name' => 'Personal', 'value' => 'Personal'),
-                                array('name' => 'All Staff', 'value' => 'All Staff'),
-                                array('name' => 'All Teachers', 'value' => 'All Teachers'),
-                                array('name' => 'International Teachers', 'value' => 'International Teachers'),
-                                array('name' => 'Integrated Teachers', 'value' => 'Integrated Teachers'),
-                                array('name' => 'Teaching Assistants', 'value' => 'Teaching Assistants'),
-                                array('name' => 'Prep & K1K2 Teachers', 'value' => 'Prep & K1K2 Teachers'),
-                                array('name' => 'Y1 - Y4 Teachers', 'value' => 'Y1 - Y4 Teachers'),
-                                array('name' => 'Y5 - Y9 Teachers', 'value' => 'Y5 - Y9 Teachers'),
-                                array('name' => 'High School Teachers', 'value' => 'High School Teachers'),
-                                array('name' => 'Office Staff', 'value' => 'Office Staff')
-                );
-                echo $this->Form->input('audience', array('data-native-menu' => 'false',
-                                                        'div' => false,
-                                                        //'multiple' => true,
-                                                        'label' => 'Intended Audience : <span style="color:red">*</span>',
-                                                        'options' => $options,
-                                                        'type' => 'select',
-                                                        'empty' => 'Make your selection/s :')); 
-            ?>
-        </li>
-        
-        <!-- This is the section to hardcode the venues information. On the TO-DO list ... ... -->
-        <li data-role="fieldcontain">
-            <?php 
-                 $venues = array(
-                                    array('name' => 'ICT Lab A', 'value' => 'ICT Lab A'),
-                                    array('name' => 'ICT Lab B', 'value' => 'ICT Lab B'),
-                                    array('name' => 'Hall', 'value' => 'Hall'),
-                                    array('name' => 'Library', 'value' => 'Library')
-                    
-                );            
-                echo $this->Form->input('venue',  array('data-native-menu' => 'false', 
-                                                        'label' => 'Venue :', 
-                                                        'options' => $venues, 
-                                                        'empty' => 'Choose one ...')
-                );
-            ?>
-        </li>
-        
-        <li data-role="fieldcontain">
-            <?php echo $this->Form->label('startdate', 'Start Date : '); ?>
-            <?php echo $this->Form->text('startdate', array('type' => 'date')); ?>
-        </li>
-        <li data-role="fieldcontain">
-            <?php echo $this->Form->label('starttime', 'Start Time : '); ?>
-            <?php echo $this->Form->text('starttime', array('label' => 'Start Time :', 'type' => 'time')); ?>
-        </li>
-        <li data-role="fieldcontain">
-            <?php echo $this->Form->label('enddate', 'End Date : '); ?>
-            <?php echo $this->Form->text('enddate', array('type' => 'date')); ?>
-        </li>
-        <li data-role="fieldcontain"> 
-            <?php echo $this->Form->label('endtime', 'End Time : '); ?>
-            <?php echo $this->Form->text('endtime', array('type' => 'time')); ?>
-        </li>
-        <li data-role="fieldcontain">    
-            <?php echo $this->Form->input('conducted', array('label' => 'Conducted By :')); ?>
-        </li>
-        <li data-role="fieldcontain">
-            <?php echo $this->Form->input('attachment', array('type' => 'file', 'label' => 'File Attachment :')); ?>
-            <?php echo $this->Form->label('attachment', '<small>Please note that certain file attachments may not work with mobile devices. Results will vary.</small>'); ?>
-        </li>
-    </ul>
-    <?php echo $this->Form->end('Save PD'); ?>
+		<li><?php echo $this->Html->link(__('List Pds'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+	</ul>
+</div>

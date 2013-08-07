@@ -1,80 +1,100 @@
 <?php
-
+App::uses('AppController', 'Controller');
+/**
+ * Pds Controller
+ *
+ * @property Pd $Pd
+ */
 class PdsController extends AppController {
-    
-    public $helpers = array('Html', 'Form', 'Session');
-    
-    public function index() {
-        $this->Pd->create();
-    	$this->set('pds', $this->Pd->find('all'));
-    }
-    
-    public function view($id = null) {
-        if (!$id) {
-            throw new NotFoundException(__('Invalid post'));
-        }
 
-        $pd = $this->Pd->findById($id);
-        if (!$pd) {
-            throw new NotFoundException(__('Invalid post'));
-        }
-        $this->set('pd', $pd);
-    }
-    
-    public function add() {
-        if ($this->request->is('post')) {
-            $this->Pd->create();
-             /* Manipulate the array before saving */
-            //$manipulatedArray = $this->request->data;
-            //$manipulatedArray['Pd']['audience'] = implode(', ', $this->request->data['Pd']['audience']);
-            //if ($this->Pd->save($manipulatedArray)) {
-              if ($this->Pd->save($this->request->data)) {
-                $this->Session->setFlash(__('Your PD has been saved.'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('Unable to add your PD.'));
-            }
-        }
-    }
-    
-    public function edit($id = null) {
-        if (!$id) {
-            throw new NotFoundException(__('Invalid post'));
-        }
-    
-        $pd = $this->Pd->findById($id);
-        if (!$pd) {
-            throw new NotFoundException(__('Invalid post'));
-        }
-    
-        if ($this->request->is('post') || $this->request->is('put')) {
-            $this->Pd->id = $id;
-            /* Manipulate the array before saving */
-            $manipulatedArray = $this->request->data;
-            $manipulatedArray['Pd']['audience'] = implode(',', $this->request->data['Pd']['audience']);
-        
-            if ($this->Pd->save($manipulatedArray)) {
-                $this->Session->setFlash(__('Your post has been updated.'));
-                $this->redirect(array('action' => 'index'));
-            } else {
-                $this->Session->setFlash(__('Unable to update your post.'));
-            }
-        }
-    
-        if (!$this->request->data) {
-            $this->request->data = $pd;
-        }
-    }
-    
-    public function delete($id) {
-        if ($this->request->is('get')) {
-            throw new MethodNotAllowedException();
-        }
-    
-        if ($this->Pd->delete($id)) {
-            $this->Session->setFlash(__('The PD has been deleted.', $id));
-            $this->redirect(array('action' => 'index'));
-        }
-    }
-    
+/**
+ * index method
+ *
+ * @return void
+ */
+	public function index() {
+		$this->Pd->recursive = 0;
+		$this->set('pds', $this->paginate());
+	}
+
+/**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function view($id = null) {
+		if (!$this->Pd->exists($id)) {
+			throw new NotFoundException(__('Invalid pd'));
+		}
+		$options = array('conditions' => array('Pd.' . $this->Pd->primaryKey => $id));
+		$this->set('pd', $this->Pd->find('first', $options));
+	}
+
+/**
+ * add method
+ *
+ * @return void
+ */
+	public function add() {
+		if ($this->request->is('post')) {
+			$this->Pd->create();
+			if ($this->Pd->save($this->request->data)) {
+				$this->Session->setFlash(__('The pd has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The pd could not be saved. Please, try again.'));
+			}
+		}
+		$users = $this->Pd->User->find('list');
+		$this->set(compact('users'));
+	}
+
+/**
+ * edit method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function edit($id = null) {
+		if (!$this->Pd->exists($id)) {
+			throw new NotFoundException(__('Invalid pd'));
+		}
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->Pd->save($this->request->data)) {
+				$this->Session->setFlash(__('The pd has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The pd could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Pd.' . $this->Pd->primaryKey => $id));
+			$this->request->data = $this->Pd->find('first', $options);
+		}
+		$users = $this->Pd->User->find('list');
+		$this->set(compact('users'));
+	}
+
+/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete($id = null) {
+		$this->Pd->id = $id;
+		if (!$this->Pd->exists()) {
+			throw new NotFoundException(__('Invalid pd'));
+		}
+		$this->request->onlyAllow('post', 'delete');
+		if ($this->Pd->delete()) {
+			$this->Session->setFlash(__('Pd deleted'));
+			$this->redirect(array('action' => 'index'));
+		}
+		$this->Session->setFlash(__('Pd was not deleted'));
+		$this->redirect(array('action' => 'index'));
+	}
 }

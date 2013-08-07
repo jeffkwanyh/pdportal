@@ -121,7 +121,7 @@
  *	`manager_index()` and `/manager/controller/index`
  *
  */
-	//Configure::write('Routing.prefixes', array('admin'));
+Configure::write('Routing.prefixes', array('admin'));
 
 /**
  * Turn off all caching application-wide.
@@ -194,12 +194,12 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', 'adfhgdfs8-0KL;HJ;09UU8789DFGJHHJHASDGHLoiu');
+	Configure::write('Security.salt', 'DYasighKLSDNGLDHFONNnjkbsnuie34tFgaC9mi');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '70932445687298734587329807689345398');
+	Configure::write('Security.cipherSeed', '767445745684535424967494537367645');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -239,7 +239,7 @@
  * Uncomment this line and correct your server timezone to fix
  * any date & time related errors.
  */
-	date_default_timezone_set('Asia/Ho_Chi_Minh');
+	//date_default_timezone_set('UTC');
 
 /**
  *

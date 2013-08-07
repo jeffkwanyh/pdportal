@@ -17,12 +17,12 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 
-$cakeDescription = __d('cake_dev', 'PD Portal - SIS@SS');
+$cakeDescription = __d('cake_dev', 'PD Portal @ SISSS');
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<?php echo $this->Html->charset(); ?>
 	<title>
 		<?php echo $cakeDescription ?>:
@@ -30,63 +30,35 @@ $cakeDescription = __d('cake_dev', 'PD Portal - SIS@SS');
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-        echo $this->Html->css('jquery.mobile-1.3.1.min.css');
-		echo $this->Html->css('notices');
-        echo $this->Html->script('jquery-1.9.1.min.js');
-        echo $this->Html->script('jquery.mobile-1.3.1.min.js');
-        //echo $this->Html->css('cake.generic');
-
+		echo $this->Html->css('cake.generic');
+		echo $this->Html->script('jquery-1.9.1.min');
+		//echo $this->Html->css('bootstrap');
+		//echo $this->Html->script('bootstrap');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 </head>
 <body>
-<!-- Start of Page -->
-	<div data-role="page" id="container">
-	
-		<div data-role="panel" id="mypanel" data-position="left" data-position-fixed="true" data-display="push">
-				<!-- panel content goes here -->
-				<ul data-role="listview" data-divider-theme="a" data-inset="true">
-					<li data-role="list-divider">Navigation</li>
-					<li><a href="/pdportal/pds">List All PDs</a></li>
-					<li><?php echo $this->Html->link("Create a PD", array('action' => 'add')); ?></li>
-					<li><a href="#registeredPD">View Registered PDs</a></li>
-					<li><a href="#conductedPD">View Conducted PDs</a></li>
-					<li><a href="#attendedPD">View Attended PDs</a></li>
-					<li><a href="#profile">Personal Profile</a></li>
-				</ul>
-				<div id="login_info">You are logged in as : SOME_USER.</div>
-			
-			<p><a href="#myheader" data-role="button" data-rel="close" >Close panel</a></p>
-		</div><!-- /panel -->
-	
-	<!-- Header -->
-		<div data-role="header" id="header" data-position="fixed">
-			<a href="#mypanel" data-role="button" data-inline="true" data-icon="bars">Go to Page ...</a>
-			<h1><?php echo $this->Html->link($cakeDescription, ''); ?></h1>
+	<div id="container">
+		<div id="header">
+			<h1><?php echo $this->Html->link($cakeDescription, '/pds'); ?></h1>
 		</div>
-		
-	<!-- Content -->
-		<div data-role="content" id="content">
+		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
 
 			<?php echo $this->fetch('content'); ?>
 		</div>
-		
-	<!-- Footer -->
-	<!--
-		<div data-role="footer" id="footer">
+		<div id="footer">
 			<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
-					'http://www.cakephp.org/',
+					'/pds',
 					array('target' => '_blank', 'escape' => false)
 				);
 			?>
 		</div>
 	</div>
-	-->
 	<?php echo $this->element('sql_dump'); ?>
 </body>
 </html>
