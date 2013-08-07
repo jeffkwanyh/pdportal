@@ -15,6 +15,7 @@ class PdsController extends AppController {
 	public function index() {
 		$this->Pd->recursive = 0;
 		$this->set('pds', $this->paginate());
+        //$this->set('pds', $pd);
 	}
 
 /**

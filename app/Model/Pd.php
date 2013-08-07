@@ -52,8 +52,8 @@ class Pd extends AppModel {
 		),
 		'approval' => array(
 			'inlist' => array(
-				'rule' => array('inlist'),
-				//'message' => 'Your custom message here',
+				'rule' => array('inlist', array('Draft', 'Pending', 'Approved')),
+				'message' => 'The approval can only be Draft, Pending or Approved.',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule

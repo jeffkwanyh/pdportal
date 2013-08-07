@@ -1,42 +1,32 @@
 <div class="pds view">
-<h2><?php echo __('Pd'); ?></h2>
+<h2><?php echo h($pd['Pd']['title']); ?></h2>
 	<dl>
-		<dt><?php echo __('Id'); ?></dt>
-		<dd>
-			<?php echo h($pd['Pd']['id']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Title'); ?></dt>
-		<dd>
-			<?php echo h($pd['Pd']['title']); ?>
-			&nbsp;
-		</dd>
 		<dt><?php echo __('Description'); ?></dt>
 		<dd>
 			<?php echo h($pd['Pd']['description']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Audience'); ?></dt>
+		<dt><?php echo __('Intended Audience'); ?></dt>
 		<dd>
 			<?php echo h($pd['Pd']['audience']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Startdate'); ?></dt>
+		<dt><?php echo __('Start date'); ?></dt>
 		<dd>
 			<?php echo h($pd['Pd']['startdate']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Starttime'); ?></dt>
+		<dt><?php echo __('Start time'); ?></dt>
 		<dd>
 			<?php echo h($pd['Pd']['starttime']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Enddate'); ?></dt>
+		<dt><?php echo __('End date'); ?></dt>
 		<dd>
 			<?php echo h($pd['Pd']['enddate']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Endtime'); ?></dt>
+		<dt><?php echo __('End time'); ?></dt>
 		<dd>
 			<?php echo h($pd['Pd']['endtime']); ?>
 			&nbsp;
@@ -56,24 +46,15 @@
 			<?php echo h($pd['Pd']['attachment']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Approval'); ?></dt>
-		<dd>
-			<?php echo h($pd['Pd']['approval']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
+		<dt><?php echo __('Created on'); ?></dt>
 		<dd>
 			<?php echo h($pd['Pd']['created']); ?>
-			&nbsp;
+			<?php echo __('by'); ?>
+			<?php echo $this->Html->link($pd['User']['name'], array('controller' => 'users', 'action' => 'view', $pd['User']['id'])); ?>
 		</dd>
 		<dt><?php echo __('Modified'); ?></dt>
 		<dd>
 			<?php echo h($pd['Pd']['modified']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('User'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($pd['User']['name'], array('controller' => 'users', 'action' => 'view', $pd['User']['id'])); ?>
 			&nbsp;
 		</dd>
 	</dl>

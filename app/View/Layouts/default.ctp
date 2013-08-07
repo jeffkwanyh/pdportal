@@ -31,7 +31,10 @@ $cakeDescription = __d('cake_dev', 'PD Portal @ SISSS');
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');
+        echo $this->Html->css('notices.css');
+        echo $this->Html->css('jquery.mobile-1.3.2');
 		echo $this->Html->script('jquery-1.9.1.min');
+        echo $this->Html->script('jquery.mobile-1.3.2');
 		//echo $this->Html->css('bootstrap');
 		//echo $this->Html->script('bootstrap');
 		echo $this->fetch('meta');
@@ -51,12 +54,12 @@ $cakeDescription = __d('cake_dev', 'PD Portal @ SISSS');
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
+			<!--<?php echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
 					'/pds',
 					array('target' => '_blank', 'escape' => false)
 				);
-			?>
+			?>-->
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
