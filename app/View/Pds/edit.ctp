@@ -1,7 +1,7 @@
 <div class="pds form">
 <?php echo $this->Form->create('Pd'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Pd'); ?></legend>
+		<legend><?php echo __('Edit This Pd'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('title');
@@ -25,8 +25,8 @@
 	<ul>
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Pd.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('Pd.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Pds'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List All Pds'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List All Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Create A New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

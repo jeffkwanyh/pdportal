@@ -31,10 +31,10 @@ $cakeDescription = __d('cake_dev', 'PD Portal @ SISSS');
 	<?php
 		echo $this->Html->meta('icon');
 		echo $this->Html->css('cake.generic');
-        echo $this->Html->css('notices.css');
-        echo $this->Html->css('jquery.mobile-1.3.2');
+        //echo $this->Html->css('notices.css');
+        //echo $this->Html->css('jquery.mobile-1.3.2');
 		echo $this->Html->script('jquery-1.9.1.min');
-        echo $this->Html->script('jquery.mobile-1.3.2');
+        //echo $this->Html->script('jquery.mobile-1.3.2');
 		//echo $this->Html->css('bootstrap');
 		//echo $this->Html->script('bootstrap');
 		echo $this->fetch('meta');

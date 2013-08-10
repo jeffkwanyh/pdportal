@@ -1,5 +1,5 @@
 <?php
-App::uses('AppModel', 'Model');
+App::uses('AppModel', 'Model', 'AuthComponent', 'Controller/Component');
 /**
  * User Model
  *
@@ -13,6 +13,8 @@ class User extends AppModel {
  * @var string
  */
 	public $displayField = 'name';
+    
+   
 
 /**
  * Validation rules
@@ -49,14 +51,14 @@ class User extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
-			'minlength' => array(
-				'rule' => array('minlength'),
+			//'minlength' => array(
+				//'rule' => array('minlength'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
+			//),
 			'alphanumeric' => array(
 				'rule' => array('alphanumeric'),
 				//'message' => 'Your custom message here',
@@ -78,7 +80,7 @@ class User extends AppModel {
 		),
 		'role' => array(
 			'inlist' => array(
-				'rule' => array('inlist'),
+				'rule' => array('inlist', array('admin', 'author')),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,

@@ -6,6 +6,7 @@ App::uses('AppController', 'Controller');
  * @property User $User
  */
 class UsersController extends AppController {
+   
 
 /**
  * index method
@@ -25,6 +26,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+	    $this->User->id = $id;
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -57,6 +59,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+	    $this->User->id = $id;
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
